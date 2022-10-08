@@ -13,6 +13,15 @@ site=website
 user=jpclouduk
 pass=`cat /opt/token`
 
+# Check command line
+if [[ $1 == promote ]]
+then
+	echo "!!!!!  Deploy to production selected  !!!!!"
+else
+	echo "!!!!!  No deployment to production has been selected  !!!!!"
+fi
+
+
 # Clear website
 echo "#### Removing Website ####"
 /usr/bin/rm -rf $base/$site
@@ -31,3 +40,9 @@ cd $base/$site
 echo "#### Building Website ####"
 cd $base/$site
 /usr/bin/npm run build
+
+# Check command line
+if [[ $1 == promote ]]
+then
+	bash $base/webadmin/promote.bash
+fi
