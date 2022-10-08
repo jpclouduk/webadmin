@@ -25,7 +25,7 @@ cd $base
 # Merge code with Docusaurus
 echo "#### Merging Docusaurus ####"
 cd $base/$site
-/ur/bin/npm install
+/usr/bin/npm install
 
 # Build website
 echo "#### Building Website ####"
