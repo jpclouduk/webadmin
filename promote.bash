@@ -13,4 +13,5 @@ site=website
 docs=/var/www/html
 
 # Promote build file to document root
+/usr/bin/rm -r $docs/*
 /usr/bin/cp -r $base/$site/build/* $docs/
