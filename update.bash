@@ -15,7 +15,7 @@ pass=`cat /opt/token`
 
 # Update local repo
 echo "#### Updating local repo ####"
-cd $base/$website
+cd $base/$site
 /usr/bin/git fetch origin main
 /usr/bin/git diff --summary FETCH_HEAD
 /usr/bin/git merge
