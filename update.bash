@@ -13,6 +13,16 @@ site=website
 user=jpclouduk
 pass=`cat /opt/token`
 
+# Usage
+if [[ ( $1 != "promote") ||  $1 != "" ]]
+then 
+	echo "Usage: $0 promote   [To push to production]"
+       	echo "Usage: $0           [To NOT push to production]"
+	exit 0
+fi 
+ 
+echo "All good !!!"
+
 # Check command line
 if [[ $1 == promote ]]
 then
