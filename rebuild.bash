@@ -10,6 +10,7 @@
 # VARS
 base=/opt
 site=website
+user=jpclouduk
 pass=`cat /opt/token`
 
 # Clear website
@@ -17,7 +18,7 @@ pass=`cat /opt/token`
 
 # Pull down site from github
 cd $base
-git clone https://github.com/jpclouduk/website.git
+git clone https://$user:$pass@github.com/jpclouduk/website.git
 
 # Merge code with Docusaurus
 cd $base/$site
