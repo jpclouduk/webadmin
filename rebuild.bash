@@ -14,16 +14,16 @@ user=jpclouduk
 pass=`cat /opt/token`
 
 # Clear website
-/usr/bin/rm $base/$site
+/usr/bin/rm -rf $base/$site
 
 # Pull down site from github
 cd $base
-git clone https://$user:$pass@github.com/jpclouduk/website.git
+/usr/bin/git clone https://$user:$pass@github.com/jpclouduk/website.git
 
 # Merge code with Docusaurus
 cd $base/$site
-npm install
+/ur/bin/npm install
 
 #Build website
 cd $base/$site
-npm run build
+/usr/bin/npm run build
