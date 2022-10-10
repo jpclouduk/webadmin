@@ -38,10 +38,10 @@ difg=`/usr/bin/git diff main origin/main --name-only`
 
 if [[ -z $difg ]]
 then
-	print "The remote and local branch are the same\n Exiting"
+	printf "The remote and local branch are the same\n Exiting"
 	exit 0
 else
-	print "The following files will be merged to local \n $difg"
+	printf "The following files will be merged to local \n $difg"
 	/usr/bin/git merge
 fi
 
