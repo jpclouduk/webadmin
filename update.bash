@@ -14,7 +14,7 @@ user=jpclouduk
 pass=`cat /opt/token`
 
 # Usage
-if [[ ( $# >= 1 ) && ( $1 != "promote" ) ]]
+if (( $# >= 1 )) &&  [ $1 != "promote" ]
 then 
 	echo "Usage: $0 promote   [To push to production]"
        	echo "Usage: $0           [To NOT push to production]"
