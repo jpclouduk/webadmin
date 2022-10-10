@@ -13,6 +13,7 @@ site=website
 admin=webadmin
 user=jpclouduk
 pass=`cat /opt/token`
+failf=$opt/$admin/fail
 
 # Usage
 if (( $# >= 1 )) &&  [ $1 != "promote" ]
@@ -30,15 +31,19 @@ else
         echo "!!!!!  No deployment to production has been selected  !!!!!"
 fi
 
-# Check for build failure files
+# Update local webadmin repo
+echo "#### Syncing webadmin repo ####" 
 cd $base/$admin
 /usr/bin/git fetch origin main
 /usr/bin/git merge
 
+# Check for fail file and fail if exists
+if [ -f "$failf" ]
+then
+    exit 0
+fi
 
-
-
-# Update local repo
+# Update local website repo
 echo "#### Updating local repo ####"
 cd $base/$site
 /usr/bin/git fetch origin main
@@ -64,9 +69,10 @@ then
     /usr/bin/printf "####  BUILD FAILED \n####  PLEASE CHECK BUILD LOG \n "
     echo `date` > fail
     echo "####  BUILD FAILED ####" >> fail
-    git add .
-    git commit -m "build failure"
-    git push origin main
+    /usr/bin/git add .
+    /usr/bin/git commit -m "build failure"
+    /usr/bin/git push https://$user:$pass@github.com/jpclouduk/webadmin.git main
+    exit 0
 fi
 
 
