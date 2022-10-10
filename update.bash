@@ -13,7 +13,7 @@ site=website
 admin=webadmin
 user=jpclouduk
 pass=`cat /opt/token`
-failf=$opt/$admin/fail
+failf=$base/$admin/fail
 
 # Usage
 if (( $# >= 1 )) &&  [ $1 != "promote" ]
