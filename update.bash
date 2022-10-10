@@ -30,7 +30,7 @@ else
         echo "!!!!!  No deployment to production has been selected  !!!!!"
 fi
 
-# Remove previous build log
+# Check for build failure file
 /usr/bin/rm -f $base/$admin/build.log
 
 # Update local repo
@@ -51,10 +51,12 @@ fi
 # Build website
 echo "#### Building Website ####"
 cd $base/$site
-/usr/bin/npm run build | tee $base/$admin/build.log
+/usr/bin/npm run build 2>&1 | tee $base/$admin/build.log
+
+# Check for build failures
 if /usr/bin/grep -Fq "ERROR" $base/$admin/build.log
 then
-    /usr/bin/printf "!!!  NPM BUILD HAD FAILED !!!\n Please check failure"
+    /usr/bin/printf "####  BUILD FAILED \n####  PLEASE CHECK BUILD LOG \n "
 fi
 
 
