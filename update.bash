@@ -30,8 +30,13 @@ else
         echo "!!!!!  No deployment to production has been selected  !!!!!"
 fi
 
-# Check for build failure file
-/usr/bin/rm -f $base/$admin/build.log
+# Check for build failure files
+cd $base/$admin
+/usr/bin/git fetch origin main
+/usr/bin/git merge
+
+
+
 
 # Update local repo
 echo "#### Updating local repo ####"
@@ -57,6 +62,11 @@ cd $base/$site
 if /usr/bin/grep -Fq "ERROR" $base/$admin/build.log
 then
     /usr/bin/printf "####  BUILD FAILED \n####  PLEASE CHECK BUILD LOG \n "
+    echo `date` > fail
+    echo "####  BUILD FAILED ####" >> fail
+    git add .
+    git commit -m "build failure"
+    git push origin main
 fi
 
 
