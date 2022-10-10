@@ -13,5 +13,7 @@ site=website
 docs=/var/www/html
 
 # Promote build file to document root
+printf "Removing live files from document root.\n"
 /usr/bin/rm -r $docs/*
+printf "Copying new build to document root.\n"
 /usr/bin/cp -r $base/$site/build/* $docs/
