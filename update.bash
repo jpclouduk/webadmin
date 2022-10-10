@@ -68,8 +68,8 @@ cd $base/$site
 if /usr/bin/grep -Fq "ERROR" $base/$admin/build.log
 then
     /usr/bin/printf "####  BUILD FAILED \n####  PLEASE CHECK BUILD LOG \n "
-    echo `date` > fail
-    echo "####  BUILD FAILED ####" >> fail
+    echo `date` > $base/$admin/fail
+    echo "####  BUILD FAILED ####" >> $base/$admin/fail
     /usr/bin/git add .
     /usr/bin/git commit -m "build failure"
     /usr/bin/git push https://$user:$pass@github.com/jpclouduk/webadmin.git main
