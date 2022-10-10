@@ -10,6 +10,7 @@
 # VARS
 base=/opt
 site=website
+admin=webadmin
 user=jpclouduk
 pass=`cat /opt/token`
 
@@ -38,19 +39,18 @@ difg=`/usr/bin/git diff main origin/main --name-only`
 
 if [[ -z $difg ]]
 then
-	printf "The remote and local branch are the same\n Exiting"
-	exit 0
+	printf "The remote and local branch are the same.\n !! Exiting !! "
+	
 else
-	printf "The following files will be merged to local \n $difg"
+	printf "The following files will be merged to local \n $difg \n"
 	/usr/bin/git merge
 fi
-
-exit 0
 
 # Build website
 echo "#### Building Website ####"
 cd $base/$site
-/usr/bin/npm run build
+/usr/bin/npm run build | tee $base/$admin/build.log
+
 
 # Check command line
 if [[ $1 == promote ]]
