@@ -20,8 +20,7 @@ then
        	echo "Usage: $0           [To NOT push to production]"
 	exit 0
 fi 
- 
-echo "All good !!!"
+
 
 # Check command line
 if [[ $1 == promote ]]
@@ -35,8 +34,18 @@ fi
 echo "#### Updating local repo ####"
 cd $base/$site
 /usr/bin/git fetch origin main
-/usr/bin/git diff --summary FETCH_HEAD
-/usr/bin/git merge
+difg=`/usr/bin/git diff main origin/main --name-only`
+
+if [[ -z $difg ]]
+then
+	print "The remote and local branch are the same\n Exiting"
+	exit 0
+else
+	print "The following files will be merged to local \n $difg"
+	/usr/bin/git merge
+fi
+
+exit 0
 
 # Build website
 echo "#### Building Website ####"
