@@ -38,6 +38,7 @@ cd $base/$admin
 /usr/bin/git merge
 
 # Check for fail file and fail if exists
+echo "### Checking for fail flag file ###"
 if [ -f "$failf" ];
 then
     echo "Fail flag file found. Exiting !!!"
