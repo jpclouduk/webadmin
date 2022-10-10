@@ -38,7 +38,7 @@ cd $base/$admin
 /usr/bin/git merge
 
 # Check for fail file and fail if exists
-if [ -f "$failf" ]
+if [ -f "$failf" ];
 then
     exit 0
 fi
