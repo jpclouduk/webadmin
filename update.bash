@@ -40,6 +40,7 @@ cd $base/$admin
 # Check for fail file and fail if exists
 if [ -f "$failf" ];
 then
+    echo "Fail flag file found. Exiting !!!"
     exit 0
 fi
 
