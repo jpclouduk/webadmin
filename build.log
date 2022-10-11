@@ -5,7 +5,7 @@
 [INFO] [en] Creating an optimized production build...
 ℹ Compiling Client
 ℹ Compiling Server
-✔ Client: Compiled successfully in 7.86s
-✔ Server: Compiled successfully in 19.85s
+✔ Client: Compiled successfully in 10.80s
+✔ Server: Compiled successfully in 21.86s
 [SUCCESS] Generated static files in "build".
 [INFO] Use `npm run serve` command to test your build locally.
