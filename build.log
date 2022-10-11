@@ -5,7 +5,15 @@
 [INFO] [en] Creating an optimized production build...
 ℹ Compiling Client
 ℹ Compiling Server
-✔ Client: Compiled successfully in 10.52s
-✔ Server: Compiled successfully in 22.49s
-[SUCCESS] Generated static files in "build".
-[INFO] Use `npm run serve` command to test your build locally.
+✔ Client: Compiled with some errors in 24.18s
+
+
+SyntaxError: /opt/website/docs/JP_Cloud_Wiki/Linux/Gnome.md: Expected corresponding JSX closing tag for <username>. (29:21)
+  27 | `}</code></pre>
+  28 | <p>{`Hello `}<username>{`. How Are you today.
+> 29 | I am 100 years old.`}</p>
+     |                      ^
+  30 |     </MDXLayout>
+  31 |   )
+  32 | };
+[ERROR] Client bundle compiled with errors therefore further build is impossible.
