@@ -1,0 +1,11 @@
+
+> jpcloud@0.0.0 build
+> docusaurus build
+
+[INFO] [en] Creating an optimized production build...
+ℹ Compiling Client
+ℹ Compiling Server
+✔ Client: Compiled successfully in 12.76s
+✔ Server: Compiled successfully in 25.98s
+[SUCCESS] Generated static files in "build".
+[INFO] Use `npm run serve` command to test your build locally.
