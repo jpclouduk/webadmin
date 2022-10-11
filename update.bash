@@ -69,15 +69,20 @@ cd $base/$site
 /usr/bin/npm run build 2>&1 | tee $base/$admin/build.log
 
 # Check for build failures
-if /usr/bin/grep -Fq "ERROR" $base/$admin/build.log
+cd $base/$admin
+if /usr/bin/grep -Fq "ERROR" build.log
 then
     /usr/bin/printf "####  BUILD FAILED \n####  PLEASE CHECK BUILD LOG \n "
-    echo `date` > $base/$admin/fail
-    echo "####  BUILD FAILED ####" >> $base/$admin/fail
+    echo `date` > fail
+    echo "####  BUILD FAILED ####" >> fail
     /usr/bin/git add .
     /usr/bin/git commit -m "build failure"
     /usr/bin/git push https://$user:$pass@github.com/jpclouduk/webadmin.git main
     exit 0
+else
+    /usr/bin/git add .
+    /usr/bin/git commit -m "build success"
+    /usr/bin/git push https://$user:$pass@github.com/jpclouduk/webadmin.git main
 fi
 
 
