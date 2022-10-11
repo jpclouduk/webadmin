@@ -43,6 +43,8 @@ if [ -f "$failf" ];
 then
     echo "Fail flag file found. Exiting !!!"
     exit 0
+else
+    echo "No fail flag file found."
 fi
 
 # Update local website repo
@@ -53,7 +55,7 @@ difg=`/usr/bin/git diff main origin/main --name-only`
 
 if [[ -z $difg ]]
 then
-	/usr/bin/printf "The remote and local branch are the same.\n !! Exiting !! "
+	/usr/bin/printf "The remote and local branch are the same.\n !! Exiting !! \n"
 	exit 0
 else
 	/usr/bin/printf "The following files will be merged to local \n $difg \n"
