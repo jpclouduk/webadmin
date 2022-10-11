@@ -64,7 +64,7 @@ fi
 
 # Build website
 echo "#### Building Website ####"
-/usr/bin/rm -f $base/$admin/build.log
+echo `date` > $base/$admin/build.log
 cd $base/$site
 /usr/bin/npm run build 2>&1 | tee $base/$admin/build.log
 
