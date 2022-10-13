@@ -14,41 +14,57 @@ admin=webadmin
 user=jpclouduk
 pass=`cat /opt/token`
 failf=$base/$admin/fail
+lina=`arch`
+
+
+# Setup architecture options
+case $lina in
+    x86_64)
+        binp=/usr/bin
+	;;
+    armv7l)
+        binp=/bin
+	;;
+    *)
+        printf "Unknown machine type\n Not armv7l or x86_64\n Use uname -m to check type.\n"
+	;;
+esac
+
 
 # Usage
 if (( $# >= 1 )) &&  [ $1 != "promote" ]
 then 
-	echo "Usage: $0 promote   [To push to production]"
-       	echo "Usage: $0           [To NOT push to production]"
+	$binp/echo "Usage: $0 promote   [To push to production]"
+       	$binp/echo "Usage: $0           [To NOT push to production]"
 	exit 0
 fi 
 
 # Check command line
 if [[ $1 == promote ]]
 then
-        echo "!!!!!  Deploy to production selected  !!!!!"
+        $binp/echo "!!!!!  Deploy to production selected  !!!!!"
 else
-        echo "!!!!!  No deployment to production has been selected  !!!!!"
+        $binp/echo "!!!!!  No deployment to production has been selected  !!!!!"
 fi
 
 # Update local webadmin repo
-echo "#### Syncing webadmin repo ####" 
+$binp/echo "#### Syncing webadmin repo ####" 
 cd $base/$admin
 /usr/bin/git fetch origin main
 /usr/bin/git merge
 
 # Check for fail file and fail if exists
-echo "### Checking for fail flag file ###"
+$binp/echo "### Checking for fail flag file ###"
 if [ -f "$failf" ];
 then
-    echo "Fail flag file found. Exiting !!!"
+    $binp/echo "Fail flag file found. Exiting !!!"
     exit 0
 else
-    echo "No fail flag file found."
+    $binp/echo "No fail flag file found."
 fi
 
 # Update local website repo
-echo "#### Updating local repo ####"
+$binp/echo "#### Updating local repo ####"
 cd $base/$site
 /usr/bin/git fetch origin main
 difg=`/usr/bin/git diff main origin/main --name-only`
@@ -63,18 +79,18 @@ else
 fi
 
 # Build website
-echo "#### Building Website ####"
-echo `date` > $base/$admin/build.log
+$binp/echo "#### Building Website ####"
+$binp/echo `date` > $base/$admin/build.log
 cd $base/$site
 /usr/bin/npm run build 2>&1 | tee $base/$admin/build.log
 
 # Check for build failures
 cd $base/$admin
-if /usr/bin/grep -Fq "ERROR" build.log
+if $binp/grep -Fq "ERROR" build.log
 then
     /usr/bin/printf "####  BUILD FAILED \n####  PLEASE CHECK BUILD LOG \n "
-    echo `date` > fail
-    echo "####  BUILD FAILED ####" >> fail
+    $binp/echo `date` > fail
+    $binp/echo "####  BUILD FAILED ####" >> fail
     /usr/bin/git add .
     /usr/bin/git commit -m "build failure"
     /usr/bin/git push https://$user:$pass@github.com/jpclouduk/webadmin.git main
