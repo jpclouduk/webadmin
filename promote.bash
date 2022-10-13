@@ -11,9 +11,23 @@
 base=/opt
 site=website
 docs=/var/www/html
+lina=`arch`
+
+# Setup architecture options
+case $lina in
+    x86_64)
+        binp=/usr/bin
+	;;
+    armv7l)
+        binp=/bin
+	;;
+    *)
+        printf "Unknown machine type\n Not armv7l or x86_64\n Use uname -m to check type.\n"
+	;;
+esac
 
 # Promote build file to document root
 printf "Removing live files from document root.\n"
-/usr/bin/rm -r $docs/*
+$binp/rm -r $docs/*
 printf "Copying new build to document root.\n"
-/usr/bin/cp -r $base/$site/build/* $docs/
+$binp/cp -r $base/$site/build/* $docs/
