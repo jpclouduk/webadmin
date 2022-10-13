@@ -17,6 +17,8 @@ This simply pushes site files from .../build directory to the apache document ro
 
 
 ### OS Requirement ###
+Build Debian server with webserver and ssh options only.  
+
 -Install curl and git  
 apt install curl git  
 
