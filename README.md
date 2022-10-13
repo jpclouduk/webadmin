@@ -25,7 +25,10 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 apt-get install -y nodejs  
 
 ### Running Docusaurus ###
-* Create clean env:    npx create-docusaurus@latest mysite classic 
-* Start dev server:    npm run start -- --host=0.0.0.0  
-* Build site:          npm run build
-* Update docusaurus:   npm install
+
+| Process | Command |
+|---------|---------|
+| Create clean env | npx create-docusaurus@latest mysite classic | 
+| Start dev server | npm run start -- --host=0.0.0.0 |  
+| Build site | npm run build |
+| Update docusaurus | npm install |
