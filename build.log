@@ -2,20 +2,11 @@
 > jpcloud@0.0.0 build
 > docusaurus build
 
-[ERROR] /opt/website/docusaurus.config.js:22
-  ],
-  ^
+[ERROR] Error: "scripts[1]" is invalid. A script must be a plain string (the src), or an object with at least a "src" property.
 
-SyntaxError: Unexpected token ']'
-    at Object.compileFunction (node:vm:360:18)
-    at wrapSafe (node:internal/modules/cjs/loader:1078:15)
-    at Module._compile (node:internal/modules/cjs/loader:1113:27)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1203:10)
-    at Module.load (node:internal/modules/cjs/loader:1027:32)
-    at Module._load (node:internal/modules/cjs/loader:868:12)
-    at Module.require (node:internal/modules/cjs/loader:1051:19)
-    at module.exports (/opt/website/node_modules/import-fresh/index.js:32:59)
-    at loadSiteConfig (/opt/website/node_modules/@docusaurus/core/lib/server/config.js:36:55)
+    at validateConfig (/opt/website/node_modules/@docusaurus/core/lib/server/configValidation.js:205:15)
+    at loadSiteConfig (/opt/website/node_modules/@docusaurus/core/lib/server/config.js:40:62)
     at async loadContext (/opt/website/node_modules/@docusaurus/core/lib/server/index.js:31:63)
+    at async Command.build (/opt/website/node_modules/@docusaurus/core/lib/commands/build.js:51:21)
 [INFO] Docusaurus version: 2.1.0
 Node version: v18.10.0
