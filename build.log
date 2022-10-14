@@ -5,7 +5,20 @@
 [INFO] [en] Creating an optimized production build...
 ℹ Compiling Client
 ℹ Compiling Server
-✔ Client: Compiled successfully in 1.68m
-✔ Server: Compiled successfully in 2.40m
-[SUCCESS] Generated static files in "build".
-[INFO] Use `npm run serve` command to test your build locally.
+✔ Client: Compiled successfully in 33.73s
+[ERROR] Docusaurus server-side rendering could not render static page with path /date.
+[INFO] It looks like you are using code that should run on the client-side only.
+To get around it, try using `<BrowserOnly>` (https://docusaurus.io/docs/docusaurus-core/#browseronly) or `ExecutionEnvironment` (https://docusaurus.io/docs/docusaurus-core/#executionenvironment).
+It might also require to wrap your client code in `useEffect` hook and/or import a third-party library dynamically (if any).
+✔ Server: Compiled with some errors in 1.34m
+
+
+ReferenceError: document is not defined
+[ERROR] Unable to build website for locale en.
+[ERROR] Error: Failed to compile with errors.
+    at /opt/website/node_modules/@docusaurus/core/lib/webpack/utils.js:180:24
+    at /opt/website/node_modules/webpack/lib/MultiCompiler.js:554:14
+    at processQueueWorker (/opt/website/node_modules/webpack/lib/MultiCompiler.js:491:6)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+[INFO] Docusaurus version: 2.1.0
+Node version: v18.10.0
