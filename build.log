@@ -5,7 +5,15 @@
 [INFO] [en] Creating an optimized production build...
 ℹ Compiling Client
 ℹ Compiling Server
-✔ Client: Compiled successfully in 36.39s
-✔ Server: Compiled successfully in 1.36m
-[SUCCESS] Generated static files in "build".
-[INFO] Use `npm run serve` command to test your build locally.
+✔ Client: Compiled with some errors in 2.03m
+
+
+SyntaxError: /opt/website/src/pages/index.js: Unexpected token (23:18)
+  21 |         <script>
+  22 |         $( document ).ready(function() {
+> 23 |                   var dt = new Date();
+     |                   ^
+  24 |         document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
+  25 |     alert( "ready!" );
+  26 | });
+[ERROR] Client bundle compiled with errors therefore further build is impossible.
