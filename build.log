@@ -5,7 +5,15 @@
 [INFO] [en] Creating an optimized production build...
 ℹ Compiling Client
 ℹ Compiling Server
-✔ Client: Compiled successfully in 44.09s
-✔ Server: Compiled successfully in 1.50m
-[SUCCESS] Generated static files in "build".
-[INFO] Use `npm run serve` command to test your build locally.
+✔ Client: Compiled with some errors in 2.07m
+
+
+SyntaxError: /opt/website/src/pages/index.js: Expected corresponding JSX closing tag for <br>. (15:15)
+  13 |     <header className={clsx('hero hero--primary', styles.heroBanner)}>
+  14 |       <div className="container">
+> 15 |         <p><br></p>
+     |                ^
+  16 |         <h1 className="hero__title">{siteConfig.title}</h1>
+  17 |         <p><br></br><br></p>
+  18 |       </div>
+[ERROR] Client bundle compiled with errors therefore further build is impossible.
