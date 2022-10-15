@@ -5,12 +5,12 @@
 [INFO] [en] Creating an optimized production build...
 ℹ Compiling Client
 ℹ Compiling Server
-✔ Client: Compiled successfully in 36.24s
+✔ Client: Compiled successfully in 39.10s
 [ERROR] Docusaurus server-side rendering could not render static page with path /.
-✔ Server: Compiled with some errors in 1.43m
+✔ Server: Compiled with some errors in 1.48m
 
 
-Error: Minified React error #31; visit https://reactjs.org/docs/error-decoder.html?invariant=31&args[]=Fri%20Oct%2014%202022%2018%3A56%3A31%20GMT%2B0100%20(British%20Summer%20Time) for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+Error: Minified React error #31; visit https://reactjs.org/docs/error-decoder.html?invariant=31&args[]=Sat%20Oct%2015%202022%2008%3A59%3A15%20GMT%2B0100%20(British%20Summer%20Time) for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
 [ERROR] Unable to build website for locale en.
 [ERROR] Error: Failed to compile with errors.
     at /opt/website/node_modules/@docusaurus/core/lib/webpack/utils.js:180:24
