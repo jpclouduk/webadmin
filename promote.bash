@@ -10,7 +10,7 @@
 # VARS
 base=/opt
 site=website
-docs=/var/www/jp_https/
+docs=/var/www/jp_https
 lina=`arch`
 
 # Setup architecture options
