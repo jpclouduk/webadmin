@@ -8,7 +8,7 @@
 
 
 # VARS
-base=/opt
+base=/opt/pi
 site=website
 user=jpclouduk
 pass=`cat /opt/token`
