@@ -11,7 +11,7 @@
 base=/opt/pi
 site=website
 user=jpclouduk
-pass=`cat /opt/token`
+pass=`cat $base/token`
 lina=`arch`
 
 # Check command line
