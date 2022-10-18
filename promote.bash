@@ -8,7 +8,7 @@
 
 
 # VARS
-base=/opt
+base=/opt/pi
 site=website
 docs=/var/www/jp_https
 lina=`arch`
@@ -28,6 +28,8 @@ esac
 
 # Promote build file to document root
 printf "Removing live files from document root.\n"
-$binp/rm -r $docs/*
+sudo $binp/rm -r $docs/*
 printf "Copying new build to document root.\n"
-$binp/cp -r $base/$site/build/* $docs/
+sudo $binp/cp -r $base/$site/build/* $docs/
+printf "Setting ownership of document root.\n"
+sudo $binp/chown -R www-data. $docs
