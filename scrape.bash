@@ -1,1 +1,1 @@
-docker run -it --env-file=/home/james/docsearch/.env -e "CONFIG=$(cat /home/james/docsearch/config.json | jq -r tostring)" algolia/docsearch-scraper
+docker run -it --env-file=/opt/pi/webadmin/.env -e "CONFIG=$(cat /opt/pi/webadmin/config.json | jq -r tostring)" algolia/docsearch-scraper

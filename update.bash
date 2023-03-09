@@ -12,7 +12,7 @@ base=/opt/pi
 site=website
 admin=webadmin
 user=jpclouduk
-pass=`cat /opt/token`
+pass=`cat ${base}/token`
 failf=$base/$admin/fail
 lina=`arch`
 
@@ -66,6 +66,7 @@ fi
 # Update local website repo
 $binp/echo "#### Updating local repo ####"
 cd $base/$site
+/usr/bin/git remote set-url origin https://$user:$pass@github.com/jpclouduk/website.git
 /usr/bin/git fetch origin main
 difg=`/usr/bin/git diff main origin/main --name-only`
 
