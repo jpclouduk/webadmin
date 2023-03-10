@@ -47,6 +47,10 @@ else
         $binp/echo "!!!!!  No deployment to production has been selected  !!!!!"
 fi
 
+# Update git config
+/usr/bin/git config --global user.name "jpclouduk"
+/usr/bin/git config --global user.email "poulsenjx@gmail.com"
+
 # Update local webadmin repo
 $binp/echo "#### Syncing webadmin repo ####" 
 cd $base/$admin

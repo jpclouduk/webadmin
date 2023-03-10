@@ -5,18 +5,7 @@
 [INFO] [en] Creating an optimized production build...
 ℹ Compiling Client
 ℹ Compiling Server
-✔ Client: Compiled successfully in 3.07m
-✔ Server: Compiled successfully in 3.68m
+✔ Client: Compiled successfully in 6.34m
+✔ Server: Compiled successfully in 7.40m
 [SUCCESS] Generated static files in "build".
 [INFO] Use `npm run serve` command to test your build locally.
-┌───────────────────────────────────────────────────┐
-│       @docusaurus/core update check failed        │
-│        Try running with sudo or get access        │
-│       to the local update config store via        │
-│ sudo chown -R $USER:$(id -gn $USER) /root/.config │
-└───────────────────────────────────────────────────┘
-npm notice 
-npm notice New major version of npm available! 8.19.2 -> 9.6.1
-npm notice Changelog: <https://github.com/npm/cli/releases/tag/v9.6.1>
-npm notice Run `npm install -g npm@9.6.1` to update!
-npm notice 
